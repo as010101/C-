@@ -49,3 +49,8 @@ because iterator syntax is similar to that of pointers (asterisk to "dereference
 template function that expects iterators as arguments will also by default accept pointers
 as well (and not check for NULL since the NULL iterator concept has a different syntax).
 
+# Void pointer
+The void type of pointer is a special type of pointer. In C++, void represents the absence of type. Therefore, void pointers are pointers that point to a value that has no type (and thus also an undetermined length and undetermined dereferencing properties).
+
+This gives void pointers a great flexibility, by being able to point to any data type, from an integer value or a float to a string of characters. In exchange, they have a great limitation: the data pointed to by them cannot be directly dereferenced (which is logical, since we have no type to dereference to), and for that reason, any address in a void pointer needs to be transformed into some other pointer type that points to a concrete data type before being dereferenced.
+
