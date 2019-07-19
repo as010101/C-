@@ -1,0 +1,33 @@
+类模板实例出来的就是模板类
+
+
+#include <iostream>
+using namespace std;
+
+
+template<class T>
+class Foo {
+public:
+  Foo()=default;      -----此处注意
+    void someMethod(T x);
+    T test()
+    {return x;};
+public:
+    T x;
+};
+
+
+
+template <class T, class U>
+bool are_equal (T a, U b)
+{
+  return (a==b);
+}
+
+int main ()
+{
+    Foo<string> fo;
+    fo.x="set";
+    cout<<fo.test();
+  return 0;
+}
