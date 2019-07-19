@@ -1,0 +1,7 @@
+有条件的noexcecpt
+在第2节中单独使用noexcept，表示其所限定的swap函数绝对不发生异常。然而，使用方式可以更加灵活，表明在一定条件下不发生异常。
+
+    void swap(Type& x, Type& y) noexcept(noexcept(x.swap(y)))    //C++11
+    {
+        x.swap(y);
+    }
