@@ -8,6 +8,9 @@ std::deque<int> q;
 std::mutex mu;
 std::condition_variable cond;
 
+/*
+生产者 在生产的时候加锁（推数据）  不保证推一个取一个，只保证在推的时候不能取 
+*/
 void function_1() {
     int count = 10;
     while (count > 0) {
@@ -19,6 +22,10 @@ void function_1() {
         count--;
     }
 }
+
+/*
+消费者 在消费的时候加锁（取数据）  不保证推一个取一个，只保证在取的时候不能推 
+*/
 
 void function_2() {
     int data = 0;
