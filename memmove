@@ -1,0 +1,24 @@
+void* my_memmove(void* dst, const void* src, size_t n)  
+{  
+    char* s_dst;  
+    char* s_src;  
+    s_dst = (char*)dst;  
+    s_src = (char*)src;  
+    if(s_dst>s_src && (s_src+n>s_dst)) {      //-------------------------第二种内存覆盖的情形。     即源指针的起始位置位于拷贝指针起始地址之后 
+                                              // 并且复制到某个元素时会发生内存重叠，注意，只有这种情况才会出现 内存重叠，因为memcpy的内部实现为
+                                              //指针++，
+                                              //至于解决办法，此处是让源指针指向尾部，然后指针--，对目标指针也是先执行s_dst = s_dst+n-1，指向尾部，
+                                              注意此处，内部如何实现了s_dst = s_dst+n-1不报内存错误，我们无从得知，但是，该操作之后，可以确定，我们安全地得到了
+                                              //了所需要的两段不发生重叠内存的尾部地址
+        s_dst = s_dst+n-1;                        
+        s_src = s_src+n-1;  
+        while(n--) {  
+            *s_dst-- = *s_src--;  
+        }  
+    }else {  
+        while(n--) {  
+            *s_dst++ = *s_src++;  
+        }  
+    }  
+    return dst;  
+}  
