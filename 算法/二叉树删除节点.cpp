@@ -36,7 +36,7 @@ public:
        else if(root->right==nullptr){return root->left;}
        else{
           TreeNode *nodeMin=min(root->right);
-          nodeMin->right=root->right;         
+          nodeMin->right=deleteMin(nodeMin->right);         
           nodeMin->left=root->left;
           return nodeMin;
           
@@ -46,7 +46,7 @@ public:
     
     }  
   
-   TreeNode * deleteMin(TreeNode * node)   //调用时要保证左右子数都有
+   TreeNode * deleteMin(TreeNode * node)     ///删除最小节点
    {
      
      if(node->left==nullptr)
@@ -60,7 +60,7 @@ public:
   
   
   
-    TreeNode* min(TreeNode * node)
+    TreeNode* min(TreeNode * node)              ///找打最小节点
     {
       while(node->left!=nullptr)
       {
