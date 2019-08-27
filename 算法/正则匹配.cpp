@@ -10,9 +10,9 @@ public:
     }
     
     bool isMatch(const char* s, const char* p) {
-        if(*p == 0) return *s == 0;                                //c  的尾标志   返回注意
+        if(*p == 0) return *s == 0;                                //c  的尾标志   返回注意 就是p匹配完时 s也要刚好匹配完
         
-        auto first_match = *s && (*s == *p || *p == '.');        //p的第一个只能为 .或者和s的第一个相同   &&z左边的*s注意
+        auto first_match = *s && (*s == *p || *p == '.');        //p的第一个只能为 .或者和s的第一个相同   &&左边的*s注意（防止出现s匹配完了还有p的情况）   
         
         if(*(p+1) == '*'){
             return isMatch(s, p+2) || (first_match && isMatch(++s, p));         //不要忘了first_match
