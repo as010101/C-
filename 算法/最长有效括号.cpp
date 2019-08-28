@@ -1,5 +1,15 @@
 
 
+输入: "(()"
+输出: 2
+解释: 最长有效括号子串为 "()"
+示例 2:
+
+输入: ")()())"
+输出: 4
+解释: 最长有效括号子串为 "()()"
+
+
 
 class Solution {
 public:
@@ -48,10 +58,10 @@ public:
             {
               sum+=(s[i]==str ? 1:-1 );
                 
-                validst++;
+                validst++;                    //这个变量是关键   如匹配这种（）（），就见效果了
                 if(sum<0)
                 {
-                    max= (max>validlength? max:validlength);
+                    max= (max>validlength? max:validlength);                      //max是用来保存之前匹配的最长的有效长度
                     sum=0;
                     validst=0;
                 }
