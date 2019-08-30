@@ -30,3 +30,53 @@ int solve(int n, int W) {                //n为数组长度  w为背包容量   
     return dp[n][W];
 }
 
+
+
+
+
+
+
+
+
+
+class Solution {
+public:
+    bool canPartition(vector<int>& nums) {
+        
+        int sum=0;
+        for(int e : nums) sum += e;
+         int  sume=sum/2;
+
+        if(sum&1)  return  false;  //???;
+        vector< vector<int> >  dp(nums.size(),vector<int>(sume,0));
+        
+            for(int i=0;i<nums.size();i++)
+            {
+                
+                for(int j=1;j<sume;j++)
+                {
+                    
+                    if(i==0)
+                    {
+                    dp[i][j]=nums[i]; 
+                        continue;
+                        
+                    }
+                    if(j<nums[i])
+                    {
+                        dp[i][j]=dp[i-1][j];
+                        continue;
+                    }
+                    
+                    dp[i][j]=max(dp[i-1][j],dp[i-1][j-nums[i]]+nums[i]);
+                    if (dp[i][j]==sume) return true;
+             
+                    
+                }
+                
+            }
+                               
+            return  false;
+        
+    }
+};
