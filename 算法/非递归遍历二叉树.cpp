@@ -29,3 +29,41 @@ public:
         return vec;
     }
 };
+
+
+
+
+
+//非递归的前序遍历    非递归前序与中序都是一直深入左子树，只是元素推入vector的时机有所不同
+class Solution {
+public:
+    vector<int> inorderTraversal(TreeNode* root) {
+        
+           vector<int>  res;
+        pre(root,res);
+        return res;
+        
+    }
+    void pre(TreeNode * node,vector<int> & res)
+    {
+        if(node==nullptr)
+        {
+            return;
+        }
+        TreeNode *p=node;
+        stack<TreeNode *> stac;
+        while(!stac.empty()||p)
+        {
+            while(p)
+            {
+                res.push_back(p->val);
+                stac.push(p);
+                p=p->left;
+                      
+            }
+            p=stac.top();     //此处留意   
+            stac.pop();
+            p=p->right;
+        }
+    }
+};
