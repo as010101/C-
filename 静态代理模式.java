@@ -38,6 +38,6 @@ return real.request();
  public class Main {
  public static void main(String[] args){
  IDBQuery q = new DBQueryProxy(); //使用代里
- q.request(); //在真正使用时才创建真实对象
+ q.request(); //在真正使用时才创建真实对象                 //即就是q.request()调用时才会真正加载，前面只是一个预加载
  }
 }
