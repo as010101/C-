@@ -7,21 +7,23 @@ public:
     // files<string,string>      文件path和文件内容
     
     vector<string> ls(string path) {
-        if (files.count(path)) {                //该路径在为文件
+        if (files.count(path)) {                //该路径为文件路径 直接返回文件名
             int idx = path.find_last_of('/');
             return {path.substr(idx + 1)};
         }
-        auto t = dirs[path];
+        auto t = dirs[path]; //存在则返回子目录名和文件名，不存在则返回不知道啥。。。
         return vector<string>(t.begin(), t.end());
     }
     
-    void mkdir(string path) {
+    void mkdir(string path) {      //一般步骤为，对得到的路径以/分割，对/以前的目录，都要插入到dirs中，插入之后，要补上/,
+                                    //同时还要做一些特殊处理，如为dir为空时要创建根目录，  mkdir的条件为从根目录开始根据给定path建新
+                                    //目录，
         istringstream is(path);
         string t = "", dir = "";
         while (getline(is, t, '/')) {
             if (t.empty()) continue;
             if (dir.empty()) dir += "/";
-            dirs[dir].insert(t);
+            dirs[dir].insert(t);    //又是insert..注意下面的注解
             if (dir.size() > 1) dir += "/";
             dir += t;
         }
