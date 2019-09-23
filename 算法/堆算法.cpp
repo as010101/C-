@@ -23,7 +23,7 @@ void max_heapify(int arr[], int start, int end) {
 			son++;
 		if (arr[dad] > arr[son]) //如果父節點大於子節點代表調整完畢，直接跳出函數
 			return;
-		else { //否則交換父子內容再繼續子節點和孫節點比較
+		else { //否則交換父子內容再繼續子節點和孫節點比較   //不满足大根堆结构，要向下进行调整
 			swap(arr[dad], arr[son]);
 			dad = son;
 			son = dad * 2 + 1;
