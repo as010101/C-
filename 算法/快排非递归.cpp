@@ -20,8 +20,9 @@ int   coreQuickSort(vector<int>& vec, int left, int right)
 			vec[right] = vec[left];
 			right--;
 		}
-		vec[left] = key;
+		
 	}
+	vec[left] = key;
 }
 
 	void  noRecursionQuickSort(vector<int> vec,int left,int right)
