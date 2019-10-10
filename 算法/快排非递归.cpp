@@ -23,6 +23,7 @@ int   coreQuickSort(vector<int>& vec, int left, int right)
 		
 	}
 	vec[left] = key;
+	return left;                  //要返回index给主程序判断
 }
 
 	void  noRecursionQuickSort(vector<int> vec,int left,int right)
