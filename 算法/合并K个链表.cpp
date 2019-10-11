@@ -12,7 +12,7 @@ public:
                                                                                 //大根堆，即输出的元素会是降序
                                                                                  //故此处要改适配算法
 
-        
+        //第一次优先队列里面的都是list的头结点，在头结点中选择最大的弹出
           for (ListNode *node : lists) if(node)heap.push(node);
         while(!heap.empty())
         {
