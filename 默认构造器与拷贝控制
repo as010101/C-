@@ -1,0 +1,6 @@
+ a  通过constructor  得到一个默认初始化对象 
+
+
+   b    constructor 根据b对象进行初始化得到临时对象temp，
+
+在拷贝初始化构造器中  temp的值赋给a,然后temp消失
