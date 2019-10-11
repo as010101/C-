@@ -1,4 +1,6 @@
 //此算法要求k个链表递增
+//template <class T, class Container = vector<T>,
+ //      class Compare = less<typename Container::value_type> > class priority_queue;
 
 class Solution {
 public:
