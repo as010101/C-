@@ -4,3 +4,36 @@
    b    constructor 根据b对象进行初始化得到临时对象temp，
 
 在拷贝初始化构造器中  temp的值赋给a,然后temp消失
+
+
+
+
+
+
+#include <iostream>
+#include <vector>
+#include <initializer_list>
+
+struct X {
+	X() { std::cout << "X()" << std::endl; }
+	X(const X&) { std::cout << "X(const X&)" << std::endl; }
+	X& operator=(const X&) { std::cout << "X& operator=(const X&)" << std::endl; return *this; }
+	~X() { std::cout << "~X()" << std::endl; }
+};
+
+void f(const X& rx, X x)
+{
+	std::vector<X> vec; 
+	vec.reserve(2);
+	vec.push_back(rx);    //调用一次拷贝构造
+	vec.push_back(x);  //调用一次拷贝构造
+}     //离开前析构两次
+
+int main()
+{
+	X* px = new X;    //调用一次默认构造
+	f(*px, *px);  //调用一次拷贝构造
+	delete px;//析构一次
+
+	return 0;
+}
