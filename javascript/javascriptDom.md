@@ -72,6 +72,10 @@ css类似JavaScript脚本，对样式的声明既可以嵌在文档的<head>部�
 这与下面这条语句的效果是等价的:
 ``` element . setAttribute("value", " the new value"); ```
 
+onmouseover onmouseout onclick 
+
+不跳转，retunrn false
+
 
 
 
