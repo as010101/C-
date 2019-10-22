@@ -1,3 +1,4 @@
+# chapter 2
 用JavaScript编写的代码必须通过HTML/XHTML文档才能执行,有两种方式可以做到这点。
 第一种方式是将JavaScript代码放到文档<head>标签中的<script>标签之间:
 一种更好的方式是把JavaScript代码存为一个扩展名为.js的独立文件。典型的作法是在文档的<head>部分放一个<script>标签， 并把它的src属性指向该文件:
@@ -41,7 +42,16 @@ javascript不用进行类型声明
 和各种表单元素等信息。
 
 
+# chapter 3
 
+DOM
+D document
+O object
+M model
+
+DOM的原子是元素节点(element node)。
+
+标签的名字就是元素的名字。文本段落元素的名字是“p”， 无序清单元素的名字是“u1”,列表项元素的名字是“11”。
 
 
 
