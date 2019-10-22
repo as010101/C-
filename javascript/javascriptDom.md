@@ -53,6 +53,30 @@ DOM的原子是元素节点(element node)。
 
 标签的名字就是元素的名字。文本段落元素的名字是“p”， 无序清单元素的名字是“u1”,列表项元素的名字是“11”。
 
+属性结点用来对元素做出更具体的描述。例如，几乎所有的元素都有一个title属性，而我们可以利用这个属性对包含在元素里的东西做出准确的描述:
+<p title="a gentle reminder' >Don't forget to buy this stuff. </p>
+
+css类似JavaScript脚本，对样式的声明既可以嵌在文档的<head>部分(<sty1e>标签之间), 也可
+以放在另外一个样式表文件里(参见第4章)。CSS声明元素样式的语法与JavaScrip函数的定义
+语法很相似:
+  
+  继承(inheritance) 是CSS技术中的-项强大功能。类似于DOM, CSS也把文档的内容视
+为一棵节点树。节点树上的各个元素将继承其父元素的样式属性。
+
+为了把某-一个或某几个元素与其他元素区别开来，需要使用class属性或id属性。
+
+有3种DOM方法可获取元素节点，分别是通过元素ID、通过标签名字和通过类名字来获取。
+
+
+例如，如果想改变某个input元素的value属性，可以这样:
+element.value = "the new value"
+这与下面这条语句的效果是等价的:
+element . setAttribute("value", " the new value");
+
+
+
+
+
 
 
 
