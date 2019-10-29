@@ -9,7 +9,11 @@ std::mutex mu;
 std::condition_variable cond;
 
 /*
-生产者 在生产的时候加锁（推数据）  不保证推一个取一个，只保证在推的时候不能取 
+生产者 在生产的时候加锁（推数据）  不保证推一个取一个，只保证在推的时候不能取
+
+
+1.condition_variable  依赖于unique_lock  
+2.调用wait时会释放锁
 */
 void function_1() {
     int count = 10;
