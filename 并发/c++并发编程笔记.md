@@ -28,6 +28,9 @@ atomic不接受拷贝和赋值，因为这样的操作会破坏原子性
 
 
   acquire release ordering对顺序性的约束程度介于sequential consistency（顺序一致性）和relaxed ordering之间，因为它不要求全局一致性，但是具有        synchronized with的关系。Relaxed ordering最弱，因为它对顺序性不做任何要求。由此可见，除非非常必要，我们一般不建议使用relaxed ordering，因为这不    能保证任何顺序性
+  
+  
+  
 
 
 
