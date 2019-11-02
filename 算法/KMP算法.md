@@ -1,3 +1,13 @@
+
+前缀和后缀： abcbcab
+
+前： a ab abc abcb
+后： b ab cab bcab
+  
+
+
+
+
 对于被匹配字符串 A
 要匹配的字符串B  B<A
 
