@@ -8,12 +8,16 @@ int main()
 {
 	int a=0;
 	int b = 0;
-	//char b = '1';
+	char tem = '1';
 	std::map<int, int> mp = {};
 //	while(std::cin>>!=-1)
-while (a != -1)
-{
-	std::cin >> a >> b;
+	while (1)
+	{
+		std::cin >> a >> tem >> b;
+		if (a == -1)
+		{
+			break;
+	}
 	mp.insert(std::make_pair(a,b));
 }
 	int k = 0;
