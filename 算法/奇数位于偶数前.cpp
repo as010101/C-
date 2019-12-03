@@ -3,8 +3,8 @@ using namespace std;
 //函数对象
 template<class T>
 struct IsOdd
-{
-	bool operator() (T x) {
+{                         
+	bool operator() (T x) {  //此处的括号虽然用了两个括号来重载，但是使用是用一个 （a）                
 		return (x & 1) ? true : false;
 	}
 };
