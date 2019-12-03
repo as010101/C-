@@ -1,5 +1,5 @@
 using namespace std;
-
+//遍历一次数据，第一次遇见奇数，将其与位置1交换，  第二次遇见奇数，将其与位置2交换，依次向后推，如果第一个是奇数。。感觉对全奇数大数据不太友好  
 //函数对象
 template<class T>
 struct IsOdd
