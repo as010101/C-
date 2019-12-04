@@ -32,6 +32,7 @@ int main()
 	short a[] = { 1,1,1,4,5,6 };
 	long b[] = { 1,2,3,4,5,6 };
 	PartionArray(a, 6, IsOdd<short>());    //实例化模板，函数对象作为参数传入和调用处应该是有别的，传入处只加()，调用处要加参数（i）
+						//即实例化一个对象作为参数，在调用处以该对象作为变量加上（i）进行operator()调用
 	PartionArray(b, 6, IsOdd<long>());
 	return 0;
 }
