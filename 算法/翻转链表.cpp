@@ -56,9 +56,10 @@ L->next=node;
 
 head->Next=node
 head=node
-
+不改变表结构，递归也可以实现逆向输出
 
 3.递归
+
 
 
 
