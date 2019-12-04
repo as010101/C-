@@ -36,3 +36,13 @@ int main()
 	PartionArray(b, 6, IsOdd<long>());
 	return 0;
 }
+
+
+
+auto plus10times2 = std::bind(  std::multiplies<int>(),std::bind(std: :plus<int>(),  std::placeholders::_1,10)，2);
+
+auto plus10times2 = [] (int i) {return (i+10)*2;};
+
+
+
+
