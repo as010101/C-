@@ -43,6 +43,6 @@ auto plus10times2 = std::bind(  std::multiplies<int>(),std::bind(std: :plus<int>
 
 auto plus10times2 = [] (int i) {return (i+10)*2;};
 
-
+//bind的第一个参数应该是接受一个函数对象，后面的列表可填可不填，在内部将其传给函数对象的调用符的参数列表
 
 
