@@ -31,6 +31,33 @@ public:
 321
 头插法的新增节点在头部，尾插发的新增节点在尾部
 
+
+
+头插
+head->next=null   假如head不作为头结点(即会存储数据)，则可以实施以下算法，倘若已给头结点L
+
+
+{
+node->next=head
+head=node
+}
+
+
+L->next=null
+{
+node->next=L->next;
+L->next=node;
+}
+
+
+尾插    head作不作为头结点都是以下算法
+
+要先保存head,如果要返回链表的话  List *p=head;
+
+head->Next=node
+head=node
+
+
 3.递归
 
 
