@@ -25,6 +25,12 @@
 
 - 对于捕获局部变量的lambda,用函数来替换它就不是那么容易了，我们可以试着写一个包含两个参数的函数来等效替换lamda,但是，我们不能用这个函数作为find_ if的一个参数,find_ if接受一个一元谓词，因此传递给find_ if的可调用对象必须接受单一参数。我们可以使用标准库bind函数来解决这个问题，它接受一个可调用对象，生成一个新的可调用对象来“适应”原对象的参数列表。
 
+auto plus10times2 = std::bind(  std::multiplies<int>(),std::bind(std: :plus<int>(),  std::placeholders::_1,10)，2);
+
+auto plus10times2 = [] (int i) {return (i+10)*2;};
+
+//bind的第一个参数应该是接受一个函数对象，后面的列表可填可不填，在内部将其传给函数对象的调用符的参数列表
+
 
 
 
