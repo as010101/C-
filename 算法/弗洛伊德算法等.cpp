@@ -15,3 +15,13 @@
      for(j=1;j<=n;j++)  
      if(e[i][j]>e[i][k]+e[k][j])  
                     e[i][j]=e[i][k]+e[k][j]; 
+
+
+
+迪杰斯特拉
+
+
+单源最短路径
+
+1    9  默认distance为最短 list(1,9)
+从剩余的顶点依次加入，如果distance变短，更新顶点list
