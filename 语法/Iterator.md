@@ -15,3 +15,9 @@ template <class T>
 struct Iterator_traits<T*>{...}
 
 还有其他traits(type_traits pointer_traits character_traits)
+
+
+
+#include <iterator>     ///使用各类迭代器的时候要包含此文件
+  
+  三类迭代器适配器，就像容器适配器一样  back_inserter  front_inserter插入首元素之前    inserter 插入指定元素之前
