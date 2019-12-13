@@ -22,7 +22,7 @@ using namespace std;
 class QueryResult; // 为了定义函数query的返回类型，这个定义是必需的
 class TextQuery {
 public:
-	using line_no= vector<string>::size_type;
+	using line_no= vector<string>::size_type;   //size_type在不同的机器平台上表现就不一样
 	TextQuery(ifstream&);
 	QueryResult query(const string&) const;
 private:
@@ -130,9 +130,16 @@ void runQueries(ifstream& infile)
 int main()
 {
 
+int main()
+{
+
 	ifstream infile;
-	infile.open("./tes.text");
+
+	infile.open("tes.txt", ios::in);
+
 	runQueries(infile);
+
 	return 0;
+}
 }
 
