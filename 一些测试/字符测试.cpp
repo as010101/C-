@@ -37,3 +37,20 @@ int main()
 
 
 }
+
+
+
+
+int main()
+{
+
+	//char p[] = "ssss";  true
+	//char* s[] = { "sss" };    false
+	const static char * s[] = { "black" , "white", "pink", "violet" };    //  static char * s[] 缺少const修饰，不能运行     s是一个数组，数组里装的是指针，指向一串const  char 
+	const char** ptr[] = { s + 3, s + 2, s + 1,     // ptr 是一个素组，数组里装的是二级指针，单次解引用得到某个s[]的地址，二次解引用得到字符串
+		s }, ***p;
+	p= ptr;
+	++p;    / 
+	printf("%s",**p + 1);
+	return 0;
+}
