@@ -1,3 +1,7 @@
+
+
+注意依赖 首先是有了  dp[0][0]  然后在dp[0][j]置初值  然后对dp[1][0]赋初值，如此，依靠初值进行动态路径选择
+
 class Solution {
 public:
     int minPathSum(vector<vector<int>>& grid) {
