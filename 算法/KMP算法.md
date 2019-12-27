@@ -3,7 +3,57 @@
 
 前： a ab abc abcb
 后： b ab cab bcab
-  
+
+ int* getNext(const string  &str)
+{
+	const string* p = &str;
+	int* next = (int*)malloc(sizeof(int) * str.size());
+	int i = 0;
+	int j = i - 1;
+ 
+	while (i < str.size())
+	{
+		if (i == 0 || p[i] == p[j])
+		{
+			i++;
+			j++;
+			next[i] = j;
+		}
+
+		else
+		{
+			j = next[j];    //这里的回溯是关键，注意回溯的是到0-j之间的那部分字符串，查看是否有前后子串，有的话可减少i与j的匹配
+		}
+	}
+	return  next;
+
+}
+
+int getstr(const string &strRes, const string& purpose)
+{
+	int* next = getNext(purpose);
+	int i = 0;
+	int j =0;  //这里不是-1 因为是匹配，不是找next数组
+	while (i<strRes.size()&&j<purpose.size())
+	{
+		if (i == 0 || strRes[i] == purpose[j])
+		{
+			i++;
+			j++;
+		}
+		else
+		{
+			j = next[j];
+		}
+	}
+	if (j == purpose.size())
+		return i - j;  //返回匹配字符串的起始位置
+	else
+		return -1;
+}
+
+ 
+ 
 next[i]表示的是：
 在第i个字符前面的i-1个字符里面，
 从开头开始的1个字符与最后1个字符是否相等，若不是，则next[i]=0,否则继续看下面；
@@ -71,4 +121,41 @@ int KMP(char * t, char * p)
     else 
        return -1;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ```
