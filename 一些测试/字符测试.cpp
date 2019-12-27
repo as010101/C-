@@ -77,3 +77,9 @@ int main()
 	printf("%s",**p + 1);
 	return 0;
 }
+
+
+-------------------------
+		char  a[10];
+	const	char* p = a;
+		p = "2we3w";
