@@ -22,3 +22,56 @@ public:
         return results;
     }
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+class Solution {
+public:
+    vector<vector<int>> permute(vector<int>& nums) {
+    
+        vector<bool> visit(nums.size(),false);
+        vector<vector<int>> vec;
+        vector<int >  dfsv;
+        HDFS(vec,dfsv,nums,visit);
+        return vec;
+    }
+    
+    void HDFS( vector<vector<int>>  & vec,vector<int> & dfsv,vector<int> & nums, vector<bool> &visit)
+    {
+        if(dfsv.size()>=nums.size())
+        {
+            vec.push_back(dfsv);
+           
+            return;
+        }
+        for(int i=0;i<nums.size();i++)
+        {
+            if(!visit[i])
+            {
+                dfsv.push_back(nums[i]);
+                visit[i]=true;
+                HDFS(vec,dfsv,nums,visit);
+                dfsv.pop_back();                //注意此处的回弹，写的时候漏掉了  
+                 visit[i]=false;    
+            }
+            
+            
+        }
+        
+        
+        
+    }
+};
