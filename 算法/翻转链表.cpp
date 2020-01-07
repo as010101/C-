@@ -24,6 +24,41 @@ public:
 //链表的翻转需要两个额外指针，一个记录前驱，一个记录当前，如果没有这两者，一次指向之后，无法向后执行
 
 
+
+
+
+
+
+
+
+//注意dummy是防止头结点被改变指向后，没有节点指向新的头结点
+//pre的作用是当链表只有两个元素时，for里面依然可以跑通，否则t会是nullptr
+//for里面   前两步  先保存curr的next,然后依靠保存的next让curr指向第三个节点
+//后两步让第二个节点指向第一个（curr）节点，再由curr的前驱指向第二个节点
+class Solution {
+public:
+    ListNode* reverseBetween(ListNode* head, int m, int n) {
+        ListNode* dummy=new ListNode(-1);
+        ListNode* pre=dummy;
+        dummy->next=head;
+        
+        for(int i=0;i<m-1;i++)
+            pre=pre->next;
+        ListNode* cur=pre->next;
+        for(int i=m;i<n;i++){
+            ListNode* t=cur->next;
+            cur->next=t->next;
+            t->next=pre->next;
+            pre->next=t;
+        }
+        return dummy->next;
+    }
+};
+
+
+
+
+
 2.头插法    （返回一个新的链表结构，但是是倒序的）
 1 2 3 4 5
 1
