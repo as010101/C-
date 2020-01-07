@@ -61,6 +61,8 @@ head=node  //这一步使得两个指针指向同一节点，即head 与 node，
 
 
 逆置
+
+//前两步记忆后一节点和逆置，后两步移动指针，cur给pre,temp给cur
         ListNode * temp=cur->next;
             cur->next=pre;    //要被赋值的放在左边
             pre=cur;
