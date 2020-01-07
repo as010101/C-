@@ -55,8 +55,16 @@ L->next=node;
 要先保存head,如果要返回链表的话  List *p=head;
 
 head->Next=node
-head=node
+head=node  //这一步使得两个指针指向同一节点，即head 与 node，其中head会每次往后移，node每次会新增
 不改变表结构，递归也可以实现逆向输出
+
+
+
+逆置
+        ListNode * temp=cur->next;
+            cur->next=pre;    //要被赋值的放在左边
+            pre=cur;
+            cur=temp;
 
 3.递归
 
