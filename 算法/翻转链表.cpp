@@ -37,10 +37,18 @@ public:
     //第四次反转：4 3 2 1(head) 5(next) 反转为 5 4 3 2 1
 
 
+    //比如1->2->3->4->5,m=1,n=5
+    //第一次反转：1(curr) 2() 3 4 5 反转为 2 1 3 4 5
+    //第二次反转：2 1(curr) 3() 4 5 反转为 3 2 1 4 5
+    //第三次发转：3 2 1(curr) 4() 5 反转为 4 3 2 1 5
+    //第四次反转：4 3 2 1(curr) 5(next) 反转为 5 4 3 2 1
+
+
 //注意dummy是防止头结点被改变指向后，没有节点指向新的头结点
 //pre的作用是当链表只有两个元素时，for里面依然可以跑通，否则t会是nullptr
 //for里面   前两步  先保存curr的next,然后依靠保存的next让curr指向第三个节点
 //后两步让第二个节点指向第一个（curr）节点，再由curr的前驱指向第二个节点
+// pre始终是逆置段的前一个节点, 每次执行操作的目的是将已逆置的节点后面一个放到逆置首，形成新的逆置
 class Solution {
 public:
     ListNode* reverseBetween(ListNode* head, int m, int n) {
@@ -52,10 +60,10 @@ public:
             pre=pre->next;
         ListNode* cur=pre->next;
         for(int i=m;i<n;i++){
-            ListNode* t=cur->next;
+            ListNode* t=cur->next;    //新的要置为逆置状态的节点
             cur->next=t->next;
             t->next=pre->next;
-            pre->next=t;
+            pre->next=t;            // pre 指向新的逆置头
         }
         return dummy->next;
     }
