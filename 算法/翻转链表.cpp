@@ -16,7 +16,7 @@ public:
             cur=temp;
         
             }
-        return pre;
+        return pre;  
     }
 };
 
@@ -54,7 +54,7 @@ public:
     ListNode* reverseBetween(ListNode* head, int m, int n) {
         ListNode* dummy=new ListNode(-1);
         ListNode* pre=dummy;
-        dummy->next=head;
+        dummy->next=head;  //也意味着pre->next=head;
         
         for(int i=0;i<m-1;i++)
             pre=pre->next;
@@ -65,7 +65,7 @@ public:
             t->next=pre->next;
             pre->next=t;            // pre 指向新的逆置头
         }
-        return dummy->next;
+        return dummy->next;     //假如是整条链翻转，pre始终是指向新逆置的链头，返回dummy->next和pre->next都可以，因为这种情况dummy和pre相同，
     }
 };
 
