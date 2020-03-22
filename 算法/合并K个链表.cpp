@@ -2,6 +2,12 @@
 //template <class T, class Container = vector<T>,
  //      class Compare = less<typename Container::value_type> > class priority_queue;
 
+      //思路是先将k个有序链表的头结点推入堆中，进行排序，得到
+       //最小节点，然后对得到最小节点相对应的那个链表进行处理，即
+        //将下一个节点推入堆，重新进行堆排序，继续循环
+
+
+
 class Solution {
 public:
     ListNode* mergeKLists(vector<ListNode*>& lists) {
