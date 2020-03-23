@@ -26,6 +26,32 @@ public:
 
 
 
+//////////递归方式
+
+struct ListNode* reverse(struct ListNode *pre, struct ListNode *p)
+{
+    if(!p) return pre;
+    struct ListNode *r = p->next;
+    p->next = pre;
+    return reverse(p, r);
+}
+
+struct ListNode* reverseList(struct ListNode* head){
+    return reverse(NULL, head);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     //思路：head表示需要反转的头节点，pre表示需要反转头节点的前驱节点
