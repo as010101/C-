@@ -25,6 +25,13 @@ sql锁有哪几种 怎么实现的？
 ------------------
 
 **xxx.**
+在sql的默认隔离下，connection 1 开启事务，但不提交，在另一个connection 2 中对该表进行select,被阻塞，直到 connection 1  commit tran
+2,  在sql的默认隔离下，connection 1 开启事务，先后对同一行数据进行两次读取   而在这两次读取过程间，connection 2对该行做出数据更改（不会被阻塞）,那么,connection 1在两次读取时，极有可能读取到不同的数据
+3.  在sql  REPEATABLE READ(可重复读) 隔离下,connection 1 开启事务，先后对同一行数据进行两次读取   而在这两次读取过程间,connection 2尝试对该行做出数据更改，将会被阻塞，当 connection 1
+    commit tran 或者 rollback tran 时，connection 可做出数据更改。
+4.  在sql序列化隔离下，可以保证在connection 1 开启事务后，同样的查询条件下，多次查询，得到的是同样的数据，不会存在前后查询出现行数不一致的情况
+
+一个数据可被多次加持共享锁 ，而只能有一个排他锁，若要加排他，要释放数据所有已经持有的锁
 
  stl 内存配置？为什么要用内存池？
 ------------------
