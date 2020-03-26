@@ -19,8 +19,8 @@ public:
         return head;
         ListNode *second=head->next;
         ListNode *third=second->next;
-        head->next=swapPairs(third);
-        second->next=head;
+        head->next=swapPairs(third);    //1
+        second->next=head;  //2           1和2位置颠倒没关系
         return second;
 
         
