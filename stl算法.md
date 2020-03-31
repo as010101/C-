@@ -32,6 +32,11 @@
 `fill and generate` <br>
 fill对容器元素填充固定值，generate根据传入的op()对容器元素赋值
 
+`reverse and rotate` <br>
+reverse对指定区间元素倒序，rotate接受三个参数,1、3为容器元素范围，2为新的容器起始元素，
+
+
+
 
 
 
