@@ -22,7 +22,15 @@
 查询某元素是否在容器中，返回一个迭代器
 
 
+`mismatch` <br>
+对两段区间的元素进行比较，返回一个迭代器指向pair，pair中元素为不同的值
 
+
+`copy` <br>
+对一段区间的元素赋值给另一个容器，需要注意的是，如果另一个容器为空，需要用back_inserter() or  front_inserter(),否则对空容器copy，会导致不确定行为
+
+`fill and generate` <br>
+fill对容器元素填充固定值，generate根据传入的op()对容器元素赋值
 
 
 
