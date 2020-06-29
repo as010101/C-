@@ -1,3 +1,94 @@
+
+
+
+#include <iostream>
+#include <sstream>
+#include <vector>
+#include <map>
+#include <tuple>
+#include <algorithm>
+#include <thread>             // std::thread
+#include <mutex>              // std::mutex, std::unique_lock
+#include <condition_variable> // std::condition_variable
+#include <queue>
+using namespace std;
+
+
+
+
+
+
+
+
+std::mutex mtx;
+std::condition_variable produce;
+std::queue<int> myQueue;
+   // shared value by producers and consumers
+
+void consumer() {
+	std::unique_lock<std::mutex> lck(mtx);
+
+	while (true)
+	{
+		std::this_thread::sleep_for(std::chrono::seconds(1));
+
+		if (myQueue.size() == 0)
+		{
+			produce.wait(lck);
+
+		}
+
+		if (myQueue.size() != 0)
+		{
+			int data = myQueue.front();
+			myQueue.pop();
+			std::cout << data << std::endl;
+			produce.notify_one();
+		}
+	}
+}
+
+void producer(int id) {
+	std::unique_lock<std::mutex> lck(mtx);
+	while (true)
+	{
+
+		std::this_thread::sleep_for(std::chrono::seconds(1));
+		for (int i = 0; i < 10; i++)
+		{
+			if (myQueue.size() != 0)
+			{
+				produce.wait(lck);
+			}
+			if (myQueue.size() == 0)
+			{
+				myQueue.push(i);
+				produce.notify_one();
+			}
+		}
+	}
+}
+
+int main()
+{
+	std::thread consumers, producers;
+	// spawn 10 consumers and 10 producers:
+		consumers = std::thread(consumer);
+		producers = std::thread(producer,   1);
+
+	// join them back:
+		producers.join();
+		consumers.join();
+
+	return 0;
+}
+
+
+
+
+
+
+
 #include <iostream>
 #include <deque>
 #include <thread>
